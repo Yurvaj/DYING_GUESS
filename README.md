@@ -15,4 +15,6 @@ DATE: 13/07/2024
    
 2) I am open to taking more suggestion regarding this project, if you have any you can contact me through my discord link in profile
 
+3) Collaborated project bring worked on by @Zohair & @UV - (Codes)
+
 -- THANK YOU --
