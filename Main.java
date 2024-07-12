@@ -6,7 +6,7 @@ class game_Attributes{
     Scanner scanner_One = new Scanner(System.in);
     String player_Guess;
     String choose_Difficulty;
-    int player_Tries = 3;
+    int player_Strength = 3;
 
     String[] wordsEasy = {"hello","moon","swimming","basketball","lawn","venus","sunny","physics","building","city","country"
             ,"africa","asia","earth","plant","road","train","biology","chicken","turkey","desert","antarctica","ocean","river","animal"};
@@ -60,16 +60,19 @@ class game_logic extends assigned_Values{
         System.out.println("JUMBLED WORD: " + swapped_String);
 
         while(flag){
-            player_Tries--;
+            player_Strength--;
+            System.out.println("STRENGTH: " + player_Strength);
             System.out.println("\nGUESS: ");
             player_Guess = scanner_One.next();
-            System.out.println("\nTRIES LEFT: " + player_Tries);
-            if (player_Tries==0){
-                System.out.println("---------------------------");
-                System.out.println("THE WORD WAS '" + Real_word + "'");
-                System.out.println("-- GAME OVER --");
-                System.out.println("---------------------------");
-                break;
+
+            if (player_Guess.equalsIgnoreCase(Real_word)) {
+                player_Strength++;
+            }
+            if (player_Strength==0){
+                System.out.println("-------------");
+                System.out.println("- GAME OVER -");
+                System.out.println("-------------");
+                System.exit(0);
             }
 
             if (player_Guess.equalsIgnoreCase(Real_word)){
