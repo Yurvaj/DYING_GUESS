@@ -63,9 +63,10 @@ class game_logic extends assigned_Values{
             player_Guess = scanner_One.next();
             System.out.println("\nTRIES LEFT: " + player_Tries);
             if (player_Tries==0){
-                System.out.println("---------------");
+                System.out.println("---------------------------");
+                System.out.println("THE WORD WAS '" + Real_word + "'");
                 System.out.println("-- GAME OVER --");
-                System.out.println("---------------");
+                System.out.println("---------------------------");
                 break;
             }
 
