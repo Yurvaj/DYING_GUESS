@@ -8,6 +8,8 @@ class game_Attributes{
     String choose_Difficulty;
     int player_Tries = 3;
 
+    //
+
     String[] words = {"hello","moon","swimming","basketball","lawn","venus","sunny","physics","building","city","country"
             ,"africa","asia","earth","plant","road","train","biology","chicken","turkey","desert","antarctica","ocean","river","animal"};
 
