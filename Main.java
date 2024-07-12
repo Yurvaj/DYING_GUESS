@@ -5,9 +5,14 @@ class game_Attributes{
     Random random_number = new Random();
     Scanner scanner_One = new Scanner(System.in);
     String player_Guess;
+    String choose_Difficulty;
+    int player_Tries = 3;
 
     String[] words = {"hello","moon","swimming","basketball","lawn","venus","sunny","physics","building","city","country"
             ,"africa","asia","earth","plant","road","train","biology","chicken","turkey","desert","antarctica","ocean","river","animal"};
+
+    String[] words_Meaning = {"greetings","space","activity","game","maintenance","space","felt","learning","shelter","landmass","landmass"
+    ,"landmass","landmass","space","grows","built","built","learning","mmm hunger","mmm hunger","hot","cold","deep","natural","lives"};
 
     int real_Random_Number = random_number.nextInt(words.length-1);
     String Real_word = words[real_Random_Number];;
@@ -19,9 +24,8 @@ class assigned_Values extends game_Attributes{
     String swapped_String;
 }
 
-
-
 class game_logic extends assigned_Values{
+
 
     public void jumbled_Word(){
         for (int i=0;i<Real_word.length();i++) {
@@ -50,15 +54,24 @@ class game_logic extends assigned_Values{
 
     public void game_Start(){
         System.out.println("A jumbled word will be displayed on your screen & you must guess the correct word in order to win !\n");
+        System.out.println("HINT -> " + words_Meaning[real_Random_Number]);
         System.out.println("JUMBLED WORD: " + swapped_String);
 
         while(flag){
+            player_Tries--;
             System.out.println("\nGUESS: ");
             player_Guess = scanner_One.next();
+            System.out.println("\nTRIES LEFT: " + player_Tries);
+            if (player_Tries==0){
+                System.out.println("---------------");
+                System.out.println("-- GAME OVER --");
+                System.out.println("---------------");
+                break;
+            }
 
             if (player_Guess.equalsIgnoreCase(Real_word)){
                 System.out.println("--------------------------------------");
-                System.out.println("YOU GUESSED RIGHT! THE WORDS WAS '" + Real_word + "'" );
+                System.out.println("YOU GUESSED RIGHT! THE WORD WAS '" + Real_word + "'" );
                 System.out.println("--------------------------------------");
                 break;
             } else {
@@ -71,12 +84,11 @@ class game_logic extends assigned_Values{
 }
 
 public class Main {
+
     public static void main(String[] args) {
-        game_Attributes GA = new game_Attributes();
         game_logic GL = new game_logic();
         GL.jumbled_Word();
         GL.game_Start();
-
 
     }
 }
