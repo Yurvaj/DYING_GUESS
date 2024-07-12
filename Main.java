@@ -66,7 +66,10 @@ class game_logic extends assigned_Values{
             player_Guess = scanner_One.next();
 
             if (player_Guess.equalsIgnoreCase(Real_word)) {
+
                 player_Strength++;
+                player_Strength++;
+
             }
             if (player_Strength==0){
                 System.out.println("-------------");
