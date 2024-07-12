@@ -11,7 +11,7 @@ DATE: 13/07/2024
 
 -- FUTURE GOALS --
 
-1) I will be adding more feature's in this game for an example: limited tries, difficulty the player wants, Hints etc..
+1) I will be adding more feature's in this game for an example: limited tries (ADDED), difficulty the player wants, Hints(ADDED) etc..
    
 2) I am open to taking more suggestion regarding this project, if you have any you can contact me through my discord link in profile
 
