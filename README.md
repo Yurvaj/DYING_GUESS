@@ -7,7 +7,7 @@ DATE: 13/07/2024
 -> A jumbled word will be generated in front of the user.
 -> The user is supposed to guess that word.
 -> If the user enter's wrong guess then the game repeats.
--> If the user Guesse's the word the the game ends.
+-> If the user Guesses the word the the game ends.
 
 -- FUTURE GOALS --
 
