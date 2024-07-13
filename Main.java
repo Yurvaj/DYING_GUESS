@@ -14,10 +14,10 @@ class game_Attributes{
             ,"africa","asia","earth","plant","road","train","biology","chicken","turkey","desert","antarctica","ocean","river","animal"};
 
     String[] words_Medium = {"construction", "latitude","longitude","microorganism","amoeba","centrifuge","mathematics","greenland",
-    "iceland","terminator","abandoned","selfish","maintenance","landmass","greetings","galaxy","neptune","saturn","curtains"};
+            "iceland","terminator","abandoned","selfish","maintenance","landmass","greetings","galaxy","neptune","saturn","curtains"};
 
     String[] words_Meaning = {"greetings","space","activity","game","maintenance","space","felt","learning","shelter","landmass","landmass"
-    ,"landmass","landmass","space","grows","built","built","learning","mmm hunger","mmm hunger","hot","cold","deep","natural","lives"};
+            ,"landmass","landmass","space","grows","built","built","learning","mmm hunger","mmm hunger","hot","cold","deep","natural","lives"};
 
     int real_Random_Number = random_number.nextInt(wordsEasy.length-1);
     int real_Random_Number_Medium = random_number.nextInt(words_Medium.length-1);
