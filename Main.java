@@ -135,7 +135,7 @@ class game_logic extends assigned_Values {
 
     public void game_Repeat_Display(){
 
-        // THIS METHOD IMPROVES THE VISUALS OF THE GAME, IF WE DO NOT CALL THIS THEN [LINE - 145] WILL KEEP REPEATING IN OUR CODE WHICH IS PRETTY ANNOYING LOL.
+        // THIS METHOD IMPROVES THE VISUALS OF THE GAME, IF WE DO NOT CALL THIS THEN [LINE - 147] WILL KEEP REPEATING IN OUR CODE WHICH IS PRETTY ANNOYING LOL.
 
         System.out.println("HINT -> " + words_Meaning[real_Random_Number]);
         System.out.println("JUMBLED WORD: " + swapped_String);
