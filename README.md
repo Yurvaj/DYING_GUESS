@@ -26,6 +26,8 @@ DATE: 13/07/2024  ||  5:27 AM (IST)
 
 2) SPELLS AND SPECIAL MOVES MAYBE ?
 
+3) PLAYER STATS AFTER THE GAME HAS ENDED
+
 -- COLLABORATORS --
 
 1) Collaborated project being worked on by @Zohair & @UV - (Codes)
