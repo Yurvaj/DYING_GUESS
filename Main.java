@@ -135,7 +135,7 @@ class game_logic extends assigned_Values {
 
     public void game_Repeat_Display(){
 
-        // THIS METHOD IMPROVES THE VISUALS OF THE GAME, IF WE DO NOT CALL THIS THEN [LINE - 147] WILL KEEP REPEATING IN OUR CODE WHICH IS PRETTY ANNOYING LOL.
+        // THIS METHOD IMPROVES THE VISUALS OF THE GAME, IF WE DO NOT CALL THIS THEN [LINE - 145] WILL KEEP REPEATING IN OUR CODE WHICH IS PRETTY ANNOYING LOL.
 
         System.out.println("STRENGTH: " + player_Strength + "\n");
         System.out.println("HINT -> " + words_Meaning[real_Random_Number]);
@@ -183,28 +183,28 @@ class game_logic extends assigned_Values {
                         player_Guess_Medium = scanner_One.next();
                     }
 
-                if (player_Strength < medium_Gameplay_Threshold) {
-                    System.out.println("\n----------------------------------------");
-                    System.out.println("- YOU COULD NOT SURVIVE THE DIFFICULTY -");
-                    System.out.println("----------------------------------------");
-                    System.exit(0);
-                }
+                    if (player_Strength < medium_Gameplay_Threshold) {
+                        System.out.println("\n----------------------------------------");
+                        System.out.println("- YOU COULD NOT SURVIVE THE DIFFICULTY -");
+                        System.out.println("----------------------------------------");
+                        System.exit(0);
+                    }
 
-                if (player_Guess_Medium.equalsIgnoreCase(real_Word_Medium)) {
-                    player_Strength++;
-                    System.out.println("--------------------------------------");
-                    System.out.println("YOU GUESSED RIGHT! THE WORD WAS '" + real_Word_Medium + "'");
-                    System.out.println("--------------------------------------");
-                    generate_New_Random_Number();
-                    jumbled_Word_Medium();
-                } else {
-                    player_Strength--;
-                    System.out.println("----------------------------------");
-                    System.out.println("WRONG GUESS! GUESS AGAIN ...");
-                    System.out.println("----------------------------------");
+                    if (player_Guess_Medium.equalsIgnoreCase(real_Word_Medium)) {
+                        player_Strength++;
+                        System.out.println("--------------------------------------");
+                        System.out.println("YOU GUESSED RIGHT! THE WORD WAS '" + real_Word_Medium + "'");
+                        System.out.println("--------------------------------------");
+                        generate_New_Random_Number();
+                        jumbled_Word_Medium();
+                    } else {
+                        player_Strength--;
+                        System.out.println("----------------------------------");
+                        System.out.println("WRONG GUESS! GUESS AGAIN ...");
+                        System.out.println("----------------------------------");
+                    }
                 }
             }
-        }
 
             if (player_Strength==0){
                 System.out.println("-------------");
