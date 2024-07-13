@@ -37,7 +37,8 @@ class game_Attributes{
             ,"africa","asia","earth","plant","road","train","biology","chicken","turkey","desert","antarctica","ocean","river","animal"};
 
     String[] words_Medium = {"construction", "latitude","longitude","microorganism","amoeba","centrifuge","mathematics","greenland",
-            "iceland","terminator","abandoned","selfish","maintenance","landmass","greetings","galaxy","neptune","saturn","curtains"};
+            "iceland","terminator","abandoned","selfish","maintenance","landmass","greetings","galaxy","neptune","saturn","curtains","accelerate","advocate","banish"
+    ,"baffled","cliche","doorknob","shower","laundry","stove","television","airplane","tank","missile"};
 
     String[] words_Meaning = {"greetings","space","activity","game","maintenance","space","felt","learning","shelter","landmass","landmass"
             ,"landmass","landmass","space","grows","built","built","learning","mmm hunger","mmm hunger","hot","cold","deep","natural","lives"};
@@ -186,6 +187,7 @@ class game_logic extends assigned_Values {
                     if (player_Strength < medium_Gameplay_Threshold) {
                         System.out.println("\n----------------------------------------");
                         System.out.println("- YOU COULD NOT SURVIVE THE DIFFICULTY -");
+                        System.out.println("\t\tTHE WORD WAS '" +real_Word_Medium+"'");
                         System.out.println("----------------------------------------");
                         System.exit(0);
                     }
@@ -207,7 +209,7 @@ class game_logic extends assigned_Values {
             }
 
             if (player_Strength==0){
-                System.out.println("-------------");
+                System.out.println("\n-------------");
                 System.out.println("- GAME OVER -");
                 System.out.println("-------------");
                 System.exit(0);
