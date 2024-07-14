@@ -54,14 +54,6 @@ class game_Attributes{
 
     boolean flag = true;
 
-    // POTION
-
-    String potion;
-
-    // STREAK
-
-    int streak;
-
     // ACCURACY
 
     float number_Of_Correct_Answers;
@@ -202,7 +194,7 @@ class game_logic extends assigned_Values {
                         System.out.println("\n----------------------------------------");
                         System.out.println("- YOU COULD NOT SURVIVE THE DIFFICULTY -");
                         System.out.println("\t\tTHE WORD WAS '" +real_Word_Medium+"'");
-                        System.out.println("\t\tACCURACY: " + (number_Of_Correct_Answers/number_Of_All_Answers) * 100 + "%");
+                        System.out.println("\t\t   ACCURACY: " + (number_Of_Correct_Answers/number_Of_All_Answers) * 100 + "%");
                         System.out.println("----------------------------------------");
                         System.exit(0);
                     }
