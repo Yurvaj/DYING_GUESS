@@ -38,7 +38,7 @@ class game_Attributes{
 
     String[] words_Medium = {"construction", "latitude","longitude","microorganism","amoeba","centrifuge","mathematics","greenland",
             "iceland","terminator","abandoned","selfish","maintenance","landmass","greetings","galaxy","neptune","saturn","curtains","accelerate","advocate","banish"
-    ,"baffled","cliche","doorknob","shower","laundry","stove","television","airplane","tank","missile"};
+    ,"baffled","cliche","doorknob","shower","laundry","stove","television","airplane","tank","missile","bombard","airstrip","kingdom"};
 
     String[] words_Meaning = {"greetings","space","activity","game","maintenance","space","felt","learning","shelter","landmass","landmass"
             ,"landmass","landmass","space","grows","built","built","learning","mmm hunger","mmm hunger","hot","cold","deep","natural","lives"};
@@ -53,6 +53,19 @@ class game_Attributes{
     // the boolean below maybe useful in the future, but as of now it has no real use.
 
     boolean flag = true;
+
+    // POTION
+
+    String potion;
+
+    // STREAK
+
+    int streak;
+
+    // ACCURACY
+
+    float number_Of_Correct_Answers;
+    float number_Of_All_Answers;
 
 }
 
@@ -156,11 +169,12 @@ class game_logic extends assigned_Values {
             player_Guess = scanner_One.next();
 
             if (player_Guess.equalsIgnoreCase(real_Word)) {
-
+                number_Of_Correct_Answers++;
+                number_Of_All_Answers++;
                 player_Strength++;
 
             } else {
-
+                number_Of_All_Answers++;
                 player_Strength--;
 
             }
@@ -188,11 +202,14 @@ class game_logic extends assigned_Values {
                         System.out.println("\n----------------------------------------");
                         System.out.println("- YOU COULD NOT SURVIVE THE DIFFICULTY -");
                         System.out.println("\t\tTHE WORD WAS '" +real_Word_Medium+"'");
+                        System.out.println("\t\tACCURACY: " + (number_Of_Correct_Answers/number_Of_All_Answers) * 100 + "%");
                         System.out.println("----------------------------------------");
                         System.exit(0);
                     }
 
                     if (player_Guess_Medium.equalsIgnoreCase(real_Word_Medium)) {
+                        number_Of_Correct_Answers++;
+                        number_Of_All_Answers++;
                         player_Strength++;
                         System.out.println("--------------------------------------");
                         System.out.println("YOU GUESSED RIGHT! THE WORD WAS '" + real_Word_Medium + "'");
@@ -200,6 +217,7 @@ class game_logic extends assigned_Values {
                         generate_New_Random_Number();
                         jumbled_Word_Medium();
                     } else {
+                        number_Of_All_Answers++;
                         player_Strength--;
                         System.out.println("----------------------------------");
                         System.out.println("WRONG GUESS! GUESS AGAIN ...");
@@ -209,9 +227,10 @@ class game_logic extends assigned_Values {
             }
 
             if (player_Strength==0){
-                System.out.println("\n-------------");
-                System.out.println("- GAME OVER -");
-                System.out.println("-------------");
+                System.out.println("\n-----------------------");
+                System.out.println("GAME OVER");
+                System.out.println("ACCURACY: " + (number_Of_Correct_Answers/number_Of_All_Answers)*100 + "%");
+                System.out.println("-----------------------");
                 System.exit(0);
             }
 
