@@ -38,7 +38,7 @@ class game_Attributes{
 
     String[] words_Medium = {"construction", "latitude","longitude","microorganism","amoeba","centrifuge","mathematics","greenland",
             "iceland","terminator","abandoned","selfish","maintenance","landmass","greetings","galaxy","neptune","saturn","curtains","accelerate","advocate","banish"
-    ,"baffled","cliche","doorknob","shower","laundry","stove","television","airplane","tank","missile","bombard","airstrip","kingdom"};
+            ,"baffled","cliche","doorknob","shower","laundry","stove","television","airplane","tank","missile","bombard","airstrip","kingdom"};
 
     String[] words_Meaning = {"greetings","space","activity","game","maintenance","space","felt","learning","shelter","landmass","landmass"
             ,"landmass","landmass","space","grows","built","built","learning","mmm hunger","mmm hunger","hot","cold","deep","natural","lives"};
