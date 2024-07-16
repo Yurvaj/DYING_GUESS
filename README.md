@@ -4,6 +4,8 @@ DATE: 13/07/2024  ||  5:27 AM (IST)
 
 -- HOW THE GAME WORKS --
 
+0) Open and run the 'Main.java' file to play the game.
+
 1) A jumbled word will be generated in front of the user.
 
 2) The user is supposed to guess that word.
@@ -22,7 +24,7 @@ DATE: 13/07/2024  ||  5:27 AM (IST)
 
 -- UPCOMING FEATURE --
 
-1) THE PROJECT IS COMPLETED AND NO NEW FEATURES WILL BE ADDED NOW.
+1) THE PROJECT IS COMPLETED AND NEW FEATURES MAY BE ADDED TIME TO TIME.
 
 -- COLLABORATORS --
 
