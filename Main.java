@@ -50,8 +50,8 @@ class game_Attributes{
             ,"baffled","cliche","doorknob","shower","laundry","stove","television","airplane","tank","missile","bombard","airstrip","kingdom"};
 
     String[] words_Hard = {"adamant","backbite","ballad","benefactor","charisma","dauntless","discrepancy","dismantle","endeavour","extinction","fathom"
-    ,"fragile","futile","gamble","garment","gibberish","hostile","Imperative","indigenous","inevitable","Knight","leverage","mundane","oblivious","perplex"
-    ,"preamble","pinnacle","quadrilateral","utopian","Whimsical","Zeal","Zippy","Patriarchy","Valediction","validation","Incarnate"};
+            ,"fragile","futile","gamble","garment","gibberish","hostile","Imperative","indigenous","inevitable","Knight","leverage","mundane","oblivious","perplex"
+            ,"preamble","pinnacle","quadrilateral","utopian","Whimsical","Zeal","Zippy","Patriarchy","Valediction","validation","Incarnate"};
 
     String[] words_Meaning = {"greetings","space","activity","game","maintenance","space","felt","learning","shelter","landmass","landmass"
             ,"landmass","landmass","space","grows","built","built","learning","mmm hunger","mmm hunger","hot","cold","deep","natural","lives"};
