@@ -30,10 +30,8 @@ ___________________________________
 
 1) THE PROJECT IS COMPLETED AND NEW FEATURES MAY BE ADDED TIME TO TIME.
 
--- COLLABORATORS --
+-- COLLABORATION --
 
-1) Collaborated project being worked on by @Zohair & @UV - (Codes)
-
-2) Open to more suggestions.
+1) Open to collaboration and more suggestions.
 
 -- THANK YOU --
