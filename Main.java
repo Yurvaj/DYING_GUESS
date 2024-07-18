@@ -129,7 +129,7 @@ class assigned_Values extends game_Attributes {
             System.out.println("\n============================================================");
             System.out.println("-- Welcome to the magical shop where you can buy POWER !-- ");
             System.out.println("============================================================");
-            System.out.println("PLAYER MONEY: " + player_Game_Money);
+            System.out.println("PLAYER GBUCKS: " + player_Game_Money);
             power_Available_In_Shop = shop_Random_Number.nextInt(1, 11);
 
             System.out.print("\nSHOP ITEMS: \n-> AVAILABLE POWER " + " = " + power_Available_In_Shop);
@@ -312,7 +312,7 @@ class game_logic extends assigned_Values {
                                 if (accuracy_Of_Guess > 85) {
 
                                     player_Game_Money += 25;
-                                    System.out.println(player_Game_Money + " GAME MONEY WON!");
+                                    System.out.println(player_Game_Money + " GBUCKS IN POCKET !!");
 
                                 } else {
 
