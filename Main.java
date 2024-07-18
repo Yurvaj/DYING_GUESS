@@ -302,19 +302,24 @@ class game_logic extends assigned_Values {
                         while (flag) {
                             accuracy_Of_Guess = (number_Of_Correct_Answers / number_Of_All_Answers) * 100;
 
-                            if (player_Strength >= 25) {
-
                                 if (special_Number_Two == 0) {
-                                    special_Number_Two++;
                                     jumbled_Word_Hard();
+                                    special_Number_Two++;
                                 }
 
+                            if (player_Strength >= 25) {
+
                                 // SHOP ATTRIBUTE USED HERE //
+
                                 if (accuracy_Of_Guess > 85) {
+
                                     player_Game_Money += 25;
                                     System.out.println(player_Game_Money + " GAME MONEY WON!");
+
                                 } else {
+
                                     System.out.println("ACCURACY LESS THAN 85%, SO NO IS GIVEN REWARD!");
+
                                 }
 
 
