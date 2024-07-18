@@ -126,14 +126,14 @@ class assigned_Values extends game_Attributes {
         shop_Confirmation = scanner_One.next();
         if (shop_Confirmation.equalsIgnoreCase("yes")) {
 
-            System.out.println("---------------------------------------------------------");
+            System.out.println("\n============================================================");
             System.out.println("-- Welcome to the magical shop where you can buy POWER !-- ");
-            System.out.println("---------------------------------------------------------");
+            System.out.println("============================================================");
             System.out.println("PLAYER MONEY: " + player_Game_Money);
             power_Available_In_Shop = shop_Random_Number.nextInt(1, 11);
 
-            System.out.println("SHOP ITEMS: \n-> POWER " + " = " + power_Available_In_Shop);
-            System.out.println("\nCOST OF ONE POWER: " + price_Of_Power);
+            System.out.print("\nSHOP ITEMS: \n-> AVAILABLE POWER " + " = " + power_Available_In_Shop);
+            System.out.println("    ||    COST OF ONE POWER: " + price_Of_Power);
             System.out.println("\nEnter quantity you want to purchase: ");
             player_Purchase_Quantity = scanner_One.nextInt();
 
@@ -147,12 +147,10 @@ class assigned_Values extends game_Attributes {
                     System.out.println("PURCHASED: " + player_Purchase_Quantity + " POWER'S");
                     power_To_Add += player_Purchase_Quantity;
                     player_Game_Money = player_Game_Money - (player_Purchase_Quantity*25);
-
-                } else {
-                    System.out.println("! INSUFFICIENT MONEY !   |OR|   ! INVALID INPUT ! ");
                 }
+
             } else {
-                System.out.println("--------------------------");
+                System.out.println("-- NO PURCHASE MADE --");
 
             }
 
@@ -333,6 +331,7 @@ class game_logic extends assigned_Values {
                                 if (confirm_To_Continue_Hard.equalsIgnoreCase("y")) {
                                     player_Strength = 0;
                                     use_Times_Power += power_To_Add;
+                                    System.out.println("============================================================\n");
                                     game_Start_Display();
                                 } else if (confirm_To_Continue_Hard.equalsIgnoreCase("n")) {
                                     System.out.println("okay! Wish you a Good Day !");
