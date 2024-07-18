@@ -6,6 +6,7 @@ ___________________________________
 
 -- HOW THE GAME WORKS --
 
+
 0) Open and run the 'Main.java' file to play the game.
 
 1) A jumbled word will be generated in front of the user.
@@ -30,12 +31,19 @@ ___________________________________
 
 11) PLAYER CAN SHOP AFTER HE/SHE WIN THE GAME TO BUY POWERS!
 
+_______________________
 -- UPCOMING FEATURE --
+_______________________
 
-1) IN GAME MONEY & SHOP TO BUY POWER
 
+1) NO MORE FEATURE IDEAS AS OF NOW.
+   
+_______________________
 -- COLLABORATION --
+_______________________
 
 1) Open to collaboration and more suggestions.
-
+   
+_______________________
 -- THANK YOU --
+_______________________
