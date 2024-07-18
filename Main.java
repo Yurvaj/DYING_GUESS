@@ -1,9 +1,22 @@
 package com.company;
-import javax.sound.midi.SysexMessage;
+
 import java.util.*;
 
 
 class game_Attributes{
+
+    float accuracy_Of_Guess;
+
+    // SHOP ATTRIBUTES
+
+    String shop_Confirmation;
+    int power_Available_In_Shop;
+    Random shop_Random_Number = new Random();
+    int player_Game_Money;
+    int player_Purchase_Quantity;
+    int player_Final_Purchase;
+    static int price_Of_Power = 25;
+    int power_To_Add;
 
     // THIS CLASS IS ONLY FOR GAME ATTRIBUTES AND INITIALIZING THE IMPORTED PACKAGES //
 
@@ -13,28 +26,29 @@ class game_Attributes{
 
     // THE SPECIAL NUMBER IS USED LATER IN THE NESTED WHILE LOOP AT THE 'game_Start_Display()' METHOD
 
-    int special_Number = 0;
-    int special_Number_Two = 0;
+    static int special_Number = 0;
+    static int special_Number_Two = 0;
 
     // TWO DIFFERENT VARIABLES FOR TWO DIFFERENT DIFFICULTIES TO STORE THE INPUT OF THE PLAYER'S GUESS
 
     String player_Guess;
     String player_Guess_Medium;
     String player_Guess_Hard;
+    String confirm_To_Continue_Hard;
 
     // USED LATER IN tHE HARD GAMEPLAY LOOP
 
-    int use_Times_Power = 1;
+    static int use_Times_Power = 2;
 
     // 'MEDIUM_GAMEPLAY_THRESHOLD' VARIABLE IS USED AS A REFERENCE POINT IN RESPECT TO THE STRENGTH OF THE PLAYER, AS THE PLAYER STRENGTH EXCEEDS THIS
     // NUMBER THE PLAYER ENTERS A NEW INCREASED DIFFICULTY
 
-    int medium_Gameplay_Threshold = 7;
-    int hard_Gameplay_Threshold = 14;
+    static int medium_Gameplay_Threshold = 7;
+    static int hard_Gameplay_Threshold = 14;
 
     //THIS IS THE WHAT PLAYER STRENGTH IS AT THE START OF THE GAME
 
-    int player_Strength = 3;
+    static int player_Strength = 3;
 
     // THREE DIFFERENT ARRAYS
     // ARRAY (1) -> EASY DIFFICULT WORD GENERATOR
@@ -76,7 +90,7 @@ class game_Attributes{
 
 }
 
-class assigned_Values extends game_Attributes{
+class assigned_Values extends game_Attributes {
 
     // TO CONVERT THE LETTERS OF THE CHOSEN REAL WORD TO AN ARRAY OF CHARACTERS [CONFUSING PART]
 
@@ -89,18 +103,61 @@ class assigned_Values extends game_Attributes{
 
     // USED LATER IN THE NESTED WHILE LOOP.
 
-    public void generate_New_Random_Number(){
-        real_Random_Number_Medium = random_number.nextInt(words_Medium.length-1);
+    public void generate_New_Random_Number() {
+        real_Random_Number_Medium = random_number.nextInt(words_Medium.length - 1);
         real_Word_Medium = words_Medium[real_Random_Number_Medium];
         character_Of_Jumbled_Word_Medium = real_Word_Medium.toCharArray();
     }
 
     // USED LATER IN THE NESTED WHILE LOOP.
 
-    public void generate_New_Random_Number_Hard(){
-        real_Random_Number_Hard = random_number.nextInt(words_Hard.length-1);
+    public void generate_New_Random_Number_Hard() {
+        real_Random_Number_Hard = random_number.nextInt(words_Hard.length - 1);
         real_Word_Hard = words_Hard[real_Random_Number_Hard];
         character_Of_Jumbled_Word_Hard = real_Word_Hard.toCharArray();
+    }
+
+    public void game_Over_Shop() {
+
+
+        System.out.println("enter 'YES' to open shop\n" +
+                "enter 'NO' to skip shopping");
+
+        shop_Confirmation = scanner_One.next();
+        if (shop_Confirmation.equalsIgnoreCase("yes")) {
+
+            System.out.println("---------------------------------------------------------");
+            System.out.println("-- Welcome to the magical shop where you can buy POWER !-- ");
+            System.out.println("---------------------------------------------------------");
+            System.out.println("PLAYER MONEY: " + player_Game_Money);
+            power_Available_In_Shop = shop_Random_Number.nextInt(1, 11);
+
+            System.out.println("SHOP ITEMS: \n-> POWER " + " = " + power_Available_In_Shop);
+            System.out.println("\nCOST OF ONE POWER: " + price_Of_Power);
+            System.out.println("\nEnter quantity you want to purchase: ");
+            player_Purchase_Quantity = scanner_One.nextInt();
+
+            player_Final_Purchase = (player_Purchase_Quantity * price_Of_Power);
+            player_Final_Purchase = player_Final_Purchase - player_Game_Money;
+
+            if (player_Purchase_Quantity > 0 && player_Purchase_Quantity <= power_Available_In_Shop) {
+
+                if (player_Final_Purchase == 0) {
+
+                    System.out.println("PURCHASED: " + player_Purchase_Quantity + " POWER'S");
+                    power_To_Add += player_Purchase_Quantity;
+                    player_Game_Money = player_Game_Money - (player_Purchase_Quantity*25);
+
+                } else {
+                    System.out.println("! INSUFFICIENT MONEY !   |OR|   ! INVALID INPUT ! ");
+                }
+            } else {
+                System.out.println("--------------------------");
+
+            }
+
+        }
+
     }
 
 }
@@ -193,7 +250,7 @@ class game_logic extends assigned_Values {
         swapped_String_Hard = new String(character_Of_Jumbled_Word_Hard);
     }
 
-    public void game_Repeat_Display(){
+    public void game_Repeat_Display() {
 
         // THIS METHOD IMPROVES THE VISUALS OF THE GAME, IF WE DO NOT CALL THIS THEN [LINE - 145] WILL KEEP REPEATING IN OUR CODE WHICH IS PRETTY ANNOYING LOL.
 
@@ -205,7 +262,9 @@ class game_logic extends assigned_Values {
     // CAN'T REALLY EXPLAIN WHAT IS GOING ON DOWN BELOW YOU WILL HAVE TO READ IT OR USE DEBUGGER
 
     public void game_Start_Display() {
-        System.out.println("A jumbled word will be displayed on your screen & you must guess the correct word in order to win !\n");
+        System.out.println("-------------------------------------------------------------------------------------------------");
+        System.out.println("A jumbled word will be displayed on your screen & you must guess the correct word in order to win !");
+        System.out.println("-------------------------------------------------------------------------------------------------\n");
         System.out.println("STRENGTH: " + player_Strength + "\n");
         System.out.println("HINT -> " + words_Meaning[real_Random_Number]);
         System.out.println("JUMBLED WORD: " + swapped_String);
@@ -231,38 +290,62 @@ class game_logic extends assigned_Values {
                 System.out.println("--------------------------");
 
                 while (flag) {
+                    accuracy_Of_Guess = (number_Of_Correct_Answers / number_Of_All_Answers) * 100;
 
 
-                    if (player_Strength>=hard_Gameplay_Threshold){
+                    if (player_Strength >= hard_Gameplay_Threshold) {
 
                         System.out.println("\n--------------------------");
                         System.out.println("--- INSANE DIFFICULTY ---");
                         System.out.println("--------------------------");
 
-                        while (flag){
+                        while (flag) {
+                            accuracy_Of_Guess = (number_Of_Correct_Answers / number_Of_All_Answers) * 100;
 
-                            if (player_Strength>=25){
+                            if (player_Strength >= 25) {
+
+                                if (special_Number_Two == 0) {
+                                    special_Number_Two++;
+                                    jumbled_Word_Hard();
+                                }
+
+                                // SHOP ATTRIBUTE USED HERE //
+                                if (accuracy_Of_Guess > 85) {
+                                    player_Game_Money += 25;
+                                    System.out.println(player_Game_Money + " GAME MONEY WON!");
+                                } else {
+                                    System.out.println("ACCURACY LESS THAN 85%, SO NO IS GIVEN REWARD!");
+                                }
+
+
                                 System.out.println("----------------------------------------");
                                 System.out.println("YOU WON THE GAME, WELL DONE!");
-                                System.out.println("\t\t  ACCURACY: " + (number_Of_Correct_Answers/number_Of_All_Answers) * 100 + "%");
+                                System.out.println("\t\t  ACCURACY: " + accuracy_Of_Guess + "%");
                                 System.out.println("----------------------------------------");
-                                System.exit(0);
+                                game_Over_Shop();
+                                System.out.println("Do you want to continue playing the game ? [y or n]");
+                                confirm_To_Continue_Hard = scanner_One.next();
+                                if (confirm_To_Continue_Hard.equalsIgnoreCase("y")) {
+                                    player_Strength = 0;
+                                    use_Times_Power += power_To_Add;
+                                    game_Start_Display();
+                                } else if (confirm_To_Continue_Hard.equalsIgnoreCase("n")) {
+                                    System.out.println("okay! Wish you a Good Day !");
+                                    System.exit(0);
+                                } else {
+                                    System.out.println("--------------------------------");
+                                }
                             }
 
-                            if (special_Number_Two==0){
-                                use_Times_Power = player_Strength/4;
-                                special_Number_Two++;
-                                jumbled_Word_Hard();
-                            }
 
-                            if (player_Strength>=hard_Gameplay_Threshold){
+                            if (player_Strength >= hard_Gameplay_Threshold) {
                                 System.out.println("To use special power enter: [power]  ||  you can use 'power': " + use_Times_Power + " times");
                                 System.out.println("STRENGTH: " + player_Strength + "\n");
                                 System.out.println("NO HINTS WILL BE GIVEN");
                                 System.out.println("JUMBLED WORD: " + swapped_String_Hard + "\n");
                                 System.out.println("GUESS: ");
                                 player_Guess_Hard = scanner_One.next();
-                                if (use_Times_Power>0) {
+                                if (use_Times_Power > 0) {
                                     if (player_Guess_Hard.equalsIgnoreCase("power")) {
                                         use_Times_Power--;
                                         player_Guess_Hard = real_Word_Hard;
@@ -274,7 +357,7 @@ class game_logic extends assigned_Values {
                                 System.out.println("\n----------------------------------------");
                                 System.out.println("- YOU COULD NOT SURVIVE THE DIFFICULTY -");
                                 System.out.println("\t\tTHE WORD WAS '" + real_Word_Hard + "'");
-                                System.out.println("\t\t  ACCURACY: " + (number_Of_Correct_Answers/number_Of_All_Answers) * 100 + "%");
+                                System.out.println("\t\t  ACCURACY: " + accuracy_Of_Guess + "%");
                                 System.out.println("----------------------------------------");
                                 System.exit(0);
                             }
@@ -313,8 +396,8 @@ class game_logic extends assigned_Values {
                     if (player_Strength < medium_Gameplay_Threshold) {
                         System.out.println("\n----------------------------------------");
                         System.out.println("- YOU COULD NOT SURVIVE THE DIFFICULTY -");
-                        System.out.println("\t\tTHE WORD WAS '" +real_Word_Medium+"'");
-                        System.out.println("\t\t  ACCURACY: " + (number_Of_Correct_Answers/number_Of_All_Answers) * 100 + "%");
+                        System.out.println("\t\tTHE WORD WAS '" + real_Word_Medium + "'");
+                        System.out.println("\t\t  ACCURACY: " + accuracy_Of_Guess + "%");
                         System.out.println("----------------------------------------");
                         System.exit(0);
                     }
@@ -338,31 +421,30 @@ class game_logic extends assigned_Values {
                 }
             }
 
-            if (player_Strength==0){
+            if (player_Strength == 0) {
                 System.out.println("\n-----------------------");
                 System.out.println("GAME OVER");
-                System.out.println("ACCURACY: " + (number_Of_Correct_Answers/number_Of_All_Answers)*100 + "%");
+                System.out.println("ACCURACY: " + accuracy_Of_Guess + "%");
                 System.out.println("-----------------------");
                 System.exit(0);
             }
 
-            if (player_Guess.equalsIgnoreCase(real_Word)){
+            if (player_Guess.equalsIgnoreCase(real_Word)) {
                 System.out.println("--------------------------------------");
-                System.out.println("YOU GUESSED RIGHT! THE WORD WAS '" + real_Word + "'" );
+                System.out.println("YOU GUESSED RIGHT! THE WORD WAS '" + real_Word + "'");
                 System.out.println("--------------------------------------");
             } else {
                 System.out.println("--------------------------------------");
                 System.out.println("WRONG GUESS! GUESS AGAIN ...");
                 System.out.println("--------------------------------------");
             }
-            real_Random_Number = random_number.nextInt(words_Easy.length-1);
+            real_Random_Number = random_number.nextInt(words_Easy.length - 1);
             real_Word = words_Easy[real_Random_Number];
             character_Of_Jumbled_Word = real_Word.toCharArray();
             jumbled_Word();
             game_Repeat_Display();
         }
     }
-
 }
 
 public class Main {
