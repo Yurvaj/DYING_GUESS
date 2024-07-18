@@ -1,8 +1,12 @@
+...TEST YOUR ENGLISH...
 
-
+___________________________________
 DATE: 13/07/2024  ||  5:27 AM (IST)
+___________________________________
 
 -- HOW THE GAME WORKS --
+
+0) Open and run the 'Main.java' file to play the game.
 
 1) A jumbled word will be generated in front of the user.
 
@@ -20,16 +24,14 @@ DATE: 13/07/2024  ||  5:27 AM (IST)
 
 8) IF THE PLAYER CANNOT KEEP UP WITH THE DIFFICULTY HE/SHE LOSES TO THE GAME.
 
+9) IF THE PLAYER GUESSES CORRECTLY 25 TIMES HE/SHE WINS THE GAME!
+
 -- UPCOMING FEATURE --
 
-1) DIFFICULTY LEVEL BASED ON THE PLAYER STRENGTH (PARTIALLY ADDED)
+1) IN GAME MONEY & SHOP TO BUT POWER
 
-2) SPELLS AND SPECIAL MOVES MAYBE ?
+-- COLLABORATION --
 
--- COLLABORATORS --
-
-1) Collaborated project being worked on by @Zohair & @UV - (Codes)
-
-2) Open to more suggestions.
+1) Open to collaboration and more suggestions.
 
 -- THANK YOU --
