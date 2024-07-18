@@ -28,7 +28,7 @@ ___________________________________
 
 -- UPCOMING FEATURE --
 
-1) IN GAME MONEY & SHOP TO BUT POWER
+1) IN GAME MONEY & SHOP TO BUY POWER
 
 -- COLLABORATION --
 
