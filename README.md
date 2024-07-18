@@ -33,17 +33,17 @@ ___________________________________
 
 _______________________
 -- UPCOMING FEATURE --
-_______________________
+
 
 
 1) NO MORE FEATURE IDEAS AS OF NOW.
    
 _______________________
 -- COLLABORATION --
-_______________________
+
 
 1) Open to collaboration and more suggestions.
    
 _______________________
 -- THANK YOU --
-_______________________
+
