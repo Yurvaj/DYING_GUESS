@@ -6,6 +6,7 @@ ___________________________________
 
 -- HOW THE GAME WORKS --
 
+
 0) Open and run the 'Main.java' file to play the game.
 
 1) A jumbled word will be generated in front of the user.
@@ -26,12 +27,23 @@ ___________________________________
 
 9) IF THE PLAYER GUESSES CORRECTLY 25 TIMES HE/SHE WINS THE GAME!
 
+10) PLAYER WILL WIN 25 GAME MONEY IF THEY WIN GAME AND MAINTAIN ACCURACY OF ATLEAST 80%.
+
+11) PLAYER CAN SHOP AFTER HE/SHE WIN THE GAME TO BUY POWERS!
+
+_______________________
 -- UPCOMING FEATURE --
 
-1) IN GAME MONEY & SHOP TO BUT POWER
 
+
+1) NO MORE FEATURE IDEAS AS OF NOW.
+   
+_______________________
 -- COLLABORATION --
 
-1) Open to collaboration and more suggestions.
 
+1) Open to collaboration and more suggestions.
+   
+_______________________
 -- THANK YOU --
+
