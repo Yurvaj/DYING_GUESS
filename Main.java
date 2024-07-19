@@ -1,11 +1,17 @@
-package com.company;
-
 import java.util.*;
 
 
 class game_Attributes{
 
     float accuracy_Of_Guess;
+
+    // GAME MODE DEVELOPMENT
+
+    String[] game_Modes = {"CLASSIC GAME","RUTHLESS GAME","EXIT"};
+    int select_Game_Mode;
+
+
+
 
     // SHOP ATTRIBUTES
 
@@ -164,6 +170,46 @@ class game_logic extends assigned_Values {
 
     // MAIN LOGIC TO SWAP THE LETTER'S OF THE EASY REAL WORD
 
+    public void select_Game_Mode(){
+        System.out.println("\n==============================");
+        System.out.println("- WELCOME TO THE DYING GUESS -");
+        System.out.println("==============================\n");
+        for (int i=0;i<game_Modes.length;i++) {
+            System.out.println((i+1) + ". " + game_Modes[i]);
+        }
+
+        System.out.println("\nSELECT GAME MODE [ TYPE NUMBER ] :");
+        select_Game_Mode = scanner_One.nextInt();
+
+        if (select_Game_Mode==1){
+            classic_Game();
+        } else if (select_Game_Mode==2) {
+            System.out.println("\n========================================================");
+            System.out.println("-> UNDER DEVELOPMENT [PLAYING CLASSICAL MODE INSTEAD]");
+            System.out.println("========================================================\n");
+            jumbled_Word();
+            game_Start_Display();
+        } else if (select_Game_Mode==3) {
+            System.out.println("\nSHUTTING DOWN...");
+            System.exit(0);
+        }else {
+            System.out.println("===================");
+            System.out.println("! INVALID INPUT !");
+            System.out.println("===================");
+            System.exit(0);
+
+        }
+    }
+
+    public void classic_Game(){
+        System.out.println("\n===========================");
+        System.out.println("- STARTING CLASSICAL MODE -");
+        System.out.println("===========================\n");
+        jumbled_Word();
+        game_Start_Display();
+    }
+
+
     public void jumbled_Word() {
         for (int i = 0; i < real_Word.length(); i++) {
             if (i == 1) {
@@ -300,10 +346,10 @@ class game_logic extends assigned_Values {
                         while (flag) {
                             accuracy_Of_Guess = (number_Of_Correct_Answers / number_Of_All_Answers) * 100;
 
-                                if (special_Number_Two == 0) {
-                                    jumbled_Word_Hard();
-                                    special_Number_Two++;
-                                }
+                            if (special_Number_Two == 0) {
+                                jumbled_Word_Hard();
+                                special_Number_Two++;
+                            }
 
                             if (player_Strength >= 25) {
 
@@ -334,8 +380,7 @@ class game_logic extends assigned_Values {
                                     System.out.println("============================================================\n");
                                     game_Start_Display();
                                 } else if (confirm_To_Continue_Hard.equalsIgnoreCase("n")) {
-                                    System.out.println("okay! Wish you a Good Day !");
-                                    System.exit(0);
+                                    select_Game_Mode();
                                 } else {
                                     System.out.println("--------------------------------");
                                 }
@@ -455,8 +500,9 @@ public class Main {
 
     public static void main(String[] args) {
         game_logic GL = new game_logic();
-        GL.jumbled_Word();
-        GL.game_Start_Display();
+        GL.select_Game_Mode();
+//        GL.jumbled_Word();
+//        GL.game_Start_Display();
     }
 }
 //  this is a comment from UV
