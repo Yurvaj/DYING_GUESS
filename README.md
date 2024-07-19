@@ -36,8 +36,7 @@ ___________________________________
 _______________________
 -- UPCOMING FEATURE --
 
-
-1) NEW SPELLS AND NEW GAME MODESS ?
+1) NEW SPELLS AND NEW GAME MODES WILL BE ADDED.
    
 _______________________
 -- COLLABORATION --
