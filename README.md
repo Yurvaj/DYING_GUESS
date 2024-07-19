@@ -1,4 +1,4 @@
-DYING GUESS SAYS -> TEST YOUR ENGLISH
+DYING GUESS SAYS -> TEST YOUR ENGLISH ON THE TERMINAL
 ___________________________________
 DATE: 13/07/2024  ||  5:27 AM (IST)
 ___________________________________
