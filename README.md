@@ -37,8 +37,7 @@ _______________________
 -- UPCOMING FEATURE --
 
 
-
-1) NO MORE FEATURE IDEAS AS OF NOW.
+1) NEW SPELLS AND NEW GAME MODESS ?
    
 _______________________
 -- COLLABORATION --
