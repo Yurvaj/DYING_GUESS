@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+package com.company;
+
+>>>>>>> fixing-code
 import java.util.*;
 
 

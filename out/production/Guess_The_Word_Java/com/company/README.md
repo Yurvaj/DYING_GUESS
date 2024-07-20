@@ -34,7 +34,11 @@ ___________________________________
 _______________________
 -- UPCOMING FEATURE --
 
+<<<<<<< HEAD
 
+=======
+1) THE PROJECT IS COMPLETED AND NO NEW FEATURES WILL BE ADDED NOW.
+>>>>>>> fixing-code
 
 1) NO MORE FEATURE IDEAS AS OF NOW.
    
