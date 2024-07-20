@@ -35,7 +35,7 @@ ___________________________________
 _______________________
 -- UPCOMING FEATURE --
 
-1) NEW SPELLS AND NEW GAME MODES WILL BE ADDED.
+1) NEW SPELLS AND NEW GAME MODES WILL BE ADDED in 'v1.0.4' full - release.
    
 _______________________
 -- COLLABORATION --
