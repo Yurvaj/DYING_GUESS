@@ -1,5 +1,4 @@
 package com.company;
-
 import java.util.*;
 
 
@@ -9,7 +8,7 @@ class game_Attributes{
 
     // GAME MODE DEVELOPMENT
 
-    String[] game_Modes = {"CLASSIC GAME","RUTHLESS GAME","EXIT"};
+    String[] game_Modes = {"CLASSIC GAME","RUTHLESS GAME","MAGICAL~SHOP","EXIT"};
     int select_Game_Mode;
 
 
@@ -20,7 +19,7 @@ class game_Attributes{
     String shop_Confirmation;
     int power_Available_In_Shop;
     Random shop_Random_Number = new Random();
-    int player_Game_Money;
+    int gbucks;
     int player_Purchase_Quantity;
     int player_Final_Purchase;
     static int price_Of_Power = 25;
@@ -96,6 +95,10 @@ class game_Attributes{
     float number_Of_Correct_Answers;
     float number_Of_All_Answers;
 
+
+
+    // RUTHLESS GAME MODE //
+
 }
 
 class assigned_Values extends game_Attributes {
@@ -125,41 +128,52 @@ class assigned_Values extends game_Attributes {
         character_Of_Jumbled_Word_Hard = real_Word_Hard.toCharArray();
     }
 
-    public void game_Over_Shop() {
+}
 
+
+class shop extends assigned_Values{
+
+    public void game_Over_Shop() {
 
         System.out.println("enter 'YES' to open shop\n" +
                 "enter 'NO' to skip shopping");
 
         shop_Confirmation = scanner_One.next();
+
         if (shop_Confirmation.equalsIgnoreCase("yes")) {
 
             System.out.println("\n============================================================");
             System.out.println("-- Welcome to the magical shop where you can buy POWER !-- ");
             System.out.println("============================================================");
-            System.out.println("PLAYER GBUCKS: " + player_Game_Money);
-            power_Available_In_Shop = shop_Random_Number.nextInt(1, 11);
+            System.out.println("PLAYER GBUCKS: " + gbucks);
+            power_Available_In_Shop = shop_Random_Number.nextInt(2, 11);
 
             System.out.print("\nSHOP ITEMS: \n-> AVAILABLE POWER " + " = " + power_Available_In_Shop);
             System.out.println("    ||    COST OF ONE POWER: " + price_Of_Power);
+
+
             System.out.println("\nEnter quantity you want to purchase: ");
             player_Purchase_Quantity = scanner_One.nextInt();
 
+
             player_Final_Purchase = (player_Purchase_Quantity * price_Of_Power);
-            player_Final_Purchase = player_Final_Purchase - player_Game_Money;
 
-            if (player_Purchase_Quantity > 0 && player_Purchase_Quantity <= power_Available_In_Shop) {
 
-                if (player_Final_Purchase == 0) {
+            if (player_Final_Purchase <= gbucks && player_Final_Purchase > 0) {
 
-                    System.out.println("PURCHASED: " + player_Purchase_Quantity + " POWER'S");
-                    power_To_Add += player_Purchase_Quantity;
-                    player_Game_Money = player_Game_Money - (player_Purchase_Quantity*25);
-                }
+
+                System.out.println("PURCHASED: " + player_Purchase_Quantity + " POWER'S");
+
+                use_Times_Power += player_Purchase_Quantity;
+
+                gbucks = gbucks - (player_Purchase_Quantity * 25);
+
+            } else if (player_Final_Purchase == 0) {
+
+                System.out.println("-- NO PURCHASE MADE || '0' IS INVALID INPUT--");
 
             } else {
-                System.out.println("-- NO PURCHASE MADE --");
-
+                System.out.println("-- NOT ENOUGH GBUCKS --");
             }
 
         }
@@ -168,14 +182,17 @@ class assigned_Values extends game_Attributes {
 
 }
 
-class game_logic extends assigned_Values {
+
+class game_logic extends shop {
 
     // MAIN LOGIC TO SWAP THE LETTER'S OF THE EASY REAL WORD
 
     public void select_Game_Mode(){
         System.out.println("\n==============================");
         System.out.println("- WELCOME TO THE DYING GUESS -");
-        System.out.println("==============================\n");
+        System.out.println("==============================");
+        System.out.println("   GBUCKS: " + gbucks + "  ||  "+ "POWER: " + use_Times_Power);
+        System.out.println("------------------------------\n");
         for (int i=0;i<game_Modes.length;i++) {
             System.out.println((i+1) + ". " + game_Modes[i]);
         }
@@ -183,23 +200,27 @@ class game_logic extends assigned_Values {
         System.out.println("\nSELECT GAME MODE [ TYPE NUMBER ] :");
         select_Game_Mode = scanner_One.nextInt();
 
-        if (select_Game_Mode==1){
-            classic_Game();
-        } else if (select_Game_Mode==2) {
-            System.out.println("\n========================================================");
-            System.out.println("-> UNDER DEVELOPMENT [PLAYING CLASSICAL MODE INSTEAD]");
-            System.out.println("========================================================\n");
-            jumbled_Word();
-            game_Start_Display();
-        } else if (select_Game_Mode==3) {
-            System.out.println("\nSHUTTING DOWN...");
-            System.exit(0);
-        }else {
-            System.out.println("===================");
-            System.out.println("! INVALID INPUT !");
-            System.out.println("===================");
-            System.exit(0);
 
+        switch (select_Game_Mode){
+            case 1:
+                classic_Game();
+                break;
+            case 2:
+                System.out.println("\n========================================================");
+                System.out.println("-> UNDER DEVELOPMENT [PLAYING CLASSICAL MODE INSTEAD]");
+                System.out.println("========================================================\n");
+                jumbled_Word();
+                game_Start_Display();
+                break;
+            case 3:
+                System.out.println("\nSHUTTING DOWN...");
+                System.exit(0);
+                break;
+            default:
+                System.out.println("===================");
+                System.out.println("! INVALID INPUT !");
+                System.out.println("===================");
+                System.exit(0);select_Game_Mode();
         }
     }
 
@@ -210,7 +231,6 @@ class game_logic extends assigned_Values {
         jumbled_Word();
         game_Start_Display();
     }
-
 
     public void jumbled_Word() {
         for (int i = 0; i < real_Word.length(); i++) {
@@ -296,6 +316,25 @@ class game_logic extends assigned_Values {
         swapped_String_Hard = new String(character_Of_Jumbled_Word_Hard);
     }
 
+
+    public void ruthless_Game_Mode(){
+        System.out.println("FOR EVERY WRONG ANSWER ( -*- ALL GBUCKS -*- ) = 0 || FOR EVERY RIGHT ANSWER GBUCKS = ( x2 )");
+        System.out.println("\n ARE YOU SURE YOU WANT TO CONTINUE ?");
+
+        String ruthless_Game_Confirmation = scanner_One.next();
+
+        switch (ruthless_Game_Confirmation){
+            case "yes", "y":
+                break;
+
+            default:
+                select_Game_Mode();
+                break;
+
+        }
+
+    }
+
     public void game_Repeat_Display() {
 
         // THIS METHOD IMPROVES THE VISUALS OF THE GAME, IF WE DO NOT CALL THIS THEN [LINE - 145] WILL KEEP REPEATING IN OUR CODE WHICH IS PRETTY ANNOYING LOL.
@@ -355,12 +394,14 @@ class game_logic extends assigned_Values {
 
                             if (player_Strength >= 25) {
 
+                                player_Strength=0;
+
                                 // SHOP ATTRIBUTE USED HERE //
 
                                 if (accuracy_Of_Guess > 85) {
 
-                                    player_Game_Money += 25;
-                                    System.out.println(player_Game_Money + " GBUCKS IN POCKET !!");
+                                    gbucks += 25;
+                                    System.out.println(gbucks + " GBUCKS IN POCKET !!");
 
                                 } else {
 
@@ -374,18 +415,27 @@ class game_logic extends assigned_Values {
                                 System.out.println("\t\t  ACCURACY: " + accuracy_Of_Guess + "%");
                                 System.out.println("----------------------------------------");
                                 game_Over_Shop();
-                                System.out.println("Do you want to continue playing the game ? [y or n]");
+
+
+
+                                System.out.println("Do you want to continue playing the game ? [ 'y' or 'n' ]");
+
                                 confirm_To_Continue_Hard = scanner_One.next();
+
                                 if (confirm_To_Continue_Hard.equalsIgnoreCase("y")) {
-                                    player_Strength = 0;
+
                                     use_Times_Power += power_To_Add;
+
                                     System.out.println("============================================================\n");
+
                                     game_Start_Display();
-                                } else if (confirm_To_Continue_Hard.equalsIgnoreCase("n")) {
-                                    select_Game_Mode();
+
                                 } else {
-                                    System.out.println("--------------------------------");
+
+                                    select_Game_Mode();
+
                                 }
+
                             }
 
 
@@ -410,6 +460,7 @@ class game_logic extends assigned_Values {
                                 System.out.println("\t\tTHE WORD WAS '" + real_Word_Hard + "'");
                                 System.out.println("\t\t  ACCURACY: " + accuracy_Of_Guess + "%");
                                 System.out.println("----------------------------------------");
+                                player_Strength = 0;
                                 System.exit(0);
                             }
                             if (player_Guess_Hard.equalsIgnoreCase(real_Word_Hard)) {

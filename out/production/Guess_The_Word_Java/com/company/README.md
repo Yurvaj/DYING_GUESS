@@ -1,8 +1,12 @@
-
-
+DYING GUESS SAYS -> TEST YOUR ENGLISH ON THE TERMINAL
+___________________________________
 DATE: 13/07/2024  ||  5:27 AM (IST)
+___________________________________
 
 -- HOW THE GAME WORKS --
+
+
+0) Open and run the 'Main.java' file to play the game.
 
 1) A jumbled word will be generated in front of the user.
 
@@ -20,16 +24,25 @@ DATE: 13/07/2024  ||  5:27 AM (IST)
 
 8) IF THE PLAYER CANNOT KEEP UP WITH THE DIFFICULTY HE/SHE LOSES TO THE GAME.
 
+9) IF THE PLAYER GUESSES CORRECTLY 25 TIMES HE/SHE WINS THE GAME!
+
+10) PLAYER WILL WIN 25 GAME MONEY IF THEY WIN GAME AND MAINTAIN ACCURACY OF ATLEAST 80%.
+
+11) PLAYER CAN SHOP AFTER HE/SHE WINS THE GAME TO BUY POWERS!
+
+12) THE IN - GAME CURRENCY IS CALLED -> GBUCKS
+
+_______________________
 -- UPCOMING FEATURE --
 
-1) DIFFICULTY LEVEL BASED ON THE PLAYER STRENGTH (PARTIALLY ADDED)
+1) NEW SPELLS AND NEW GAME MODES WILL BE ADDED in 'v1.0.4' full - release.
+   
+_______________________
+-- COLLABORATION --
 
-2) SPELLS AND SPECIAL MOVES MAYBE ?
 
--- COLLABORATORS --
-
-1) Collaborated project being worked on by @Zohair & @UV - (Codes)
-
-2) Open to more suggestions.
-
+1) Open to collaboration and more suggestions.
+   
+_______________________
 -- THANK YOU --
+
