@@ -6,31 +6,25 @@ ___________________________________
 -- HOW THE GAME WORKS --
 
 
-0) Open and run the 'Main.java' file to play the game.
+1) THE MAIN MENU HAS THE OPTIONS OF "CLASSIC GAME", "RUTHLESS MODE", "MAGICAL~SHOP","EXIT"
+   
+- The classic game is a simple game mode for the player to win Gbucks(game currency) in!
+- 25 gbucks are won if you maintain the accuracy of [ x > 85% ] & also win the game mode by guessing '25' correct words without dying to the
+  increasing difficulty.
+- if the player wins the game mode he/she can decide if they want to enter the 'magical~shop' or not
+- Hints for the jumbled words are given till the easy mode only, medium and insane mode do not have hints for the jumbled word !
+- if the user guesses the wrong word in classic mode then the user will be prompted to guess the same word until the correct word is provided.
 
-1) A jumbled word will be generated in front of the user.
+2) THE RUTHLESS MODE
+   
+- This mode is based on the concept of 'double or nothing'; which simply means that if the player guesses the correct word then the users gbucks would be doubled
+  but if the user gueses the wrond word then the users gbucks would be become '0'
+- A confirmation screen for playing ruthless mode is always generated.
 
-2) The user is supposed to guess that word.
-
-3) If the user enter's wrong guess then the game prompts the user to guess the same word again.
-
-4) If the user Guesses the word then the game produces a new word for the user to guess.
-
-5) WRONG GUESS REDUCES THE PLAYER STRENGTH.
-
-6) RIGHT GUESS INCREASES THE PLAYER STRENGTH. 
-
-7) AS THE PLAYER STRENGTH INCREASES THE DIFFICULTY ALSO INCREASES
-
-8) IF THE PLAYER CANNOT KEEP UP WITH THE DIFFICULTY HE/SHE LOSES TO THE GAME.
-
-9) IF THE PLAYER GUESSES CORRECTLY 25 TIMES HE/SHE WINS THE GAME!
-
-10) PLAYER WILL WIN 25 GAME MONEY IF THEY WIN GAME AND MAINTAIN ACCURACY OF ATLEAST 80%.
-
-11) PLAYER CAN SHOP AFTER HE/SHE WINS THE GAME TO BUY POWERS!
-
-12) THE IN - GAME CURRENCY IS CALLED -> GBUCKS
+3) MAGICAL~SHOP
+   
+- As of the release version 'v1.0.4' there is only power availabe to be bought inside of the magical shop, each power cost's '25' gbucks to purchase.
+- In  the upcoming updates more special abilities will be available !!
 
 _______________________
 -- UPCOMING FEATURE --
