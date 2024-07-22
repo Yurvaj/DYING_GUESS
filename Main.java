@@ -328,10 +328,15 @@ class game_logic extends shop {
                 break;
 
             default:
+                System.out.println("========================");
+                System.out.println("-- BACK TO MAIN MENU --");
+                System.out.println("========================");
                 select_Game_Mode();
                 break;
 
         }
+
+
 
     }
 
