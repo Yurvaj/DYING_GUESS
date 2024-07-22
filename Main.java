@@ -131,12 +131,54 @@ class assigned_Values extends game_Attributes {
 }
 
 
-class shop extends assigned_Values{
+
+
+class game_logic extends assigned_Values {
+
+    // MAIN LOGIC TO SWAP THE LETTER'S OF THE EASY REAL WORD
+
+    public void select_Game_Mode(){
+        System.out.println("\n==============================");
+        System.out.println("- WELCOME TO THE DYING GUESS -");
+        System.out.println("==============================");
+        System.out.println("   GBUCKS: " + gbucks + "  ||  "+ "POWER: " + use_Times_Power);
+        System.out.println("------------------------------\n");
+        for (int i=0;i<game_Modes.length;i++) {
+            System.out.println((i+1) + ". " + game_Modes[i]);
+        }
+
+        System.out.println("\nSELECT GAME MODE [ TYPE NUMBER ] :");
+        select_Game_Mode = scanner_One.nextInt();
+
+
+        switch (select_Game_Mode){
+            case 1:
+                classic_Game();
+                break;
+            case 2:
+                ruthless_Game_Mode();
+                break;
+            case 3:
+                game_Over_Shop();
+                break;
+            case 4:
+                System.out.println("\nSHUTTING DOWN...");
+                System.exit(0);
+                break;
+            default:
+                System.out.println("===================");
+                System.out.println("! INVALID INPUT !");
+                System.out.println("===================\n");
+                select_Game_Mode();
+        }
+    }
 
     public void game_Over_Shop() {
 
+        System.out.println("=============================");
         System.out.println("enter 'YES' to open shop\n" +
                 "enter 'NO' to skip shopping");
+        System.out.println("=============================");
 
         shop_Confirmation = scanner_One.next();
 
@@ -168,59 +210,26 @@ class shop extends assigned_Values{
 
                 gbucks = gbucks - (player_Purchase_Quantity * 25);
 
+                select_Game_Mode();
+
             } else if (player_Final_Purchase == 0) {
 
+                System.out.println("===============================================");
                 System.out.println("-- NO PURCHASE MADE || '0' IS INVALID INPUT--");
+                System.out.println("===============================================");
+
+                select_Game_Mode();
 
             } else {
+                System.out.println("=========================");
                 System.out.println("-- NOT ENOUGH GBUCKS --");
+                System.out.println("=========================");
+                select_Game_Mode();
+
             }
 
-        }
-
-    }
-
-}
-
-
-class game_logic extends shop {
-
-    // MAIN LOGIC TO SWAP THE LETTER'S OF THE EASY REAL WORD
-
-    public void select_Game_Mode(){
-        System.out.println("\n==============================");
-        System.out.println("- WELCOME TO THE DYING GUESS -");
-        System.out.println("==============================");
-        System.out.println("   GBUCKS: " + gbucks + "  ||  "+ "POWER: " + use_Times_Power);
-        System.out.println("------------------------------\n");
-        for (int i=0;i<game_Modes.length;i++) {
-            System.out.println((i+1) + ". " + game_Modes[i]);
-        }
-
-        System.out.println("\nSELECT GAME MODE [ TYPE NUMBER ] :");
-        select_Game_Mode = scanner_One.nextInt();
-
-
-        switch (select_Game_Mode){
-            case 1:
-                classic_Game();
-                break;
-            case 2:
-                System.out.println("\n========================================================");
-                System.out.println("-> UNDER DEVELOPMENT [PLAYING CLASSICAL MODE INSTEAD]");
-                System.out.println("========================================================\n");
-                jumbled_Word();
-                game_Start_Display();
-                break;
-            case 3:
-                System.out.println("\nSHUTTING DOWN...");
-                System.exit(0);
-                break;
-            default:
-                System.out.println("===================");
-                System.out.println("! INVALID INPUT !");
-                System.out.println("===================");
-                System.exit(0);select_Game_Mode();
+        } else {
+            select_Game_Mode();
         }
     }
 
@@ -318,13 +327,20 @@ class game_logic extends shop {
 
 
     public void ruthless_Game_Mode(){
+        System.out.println("\n==============================================================================================");
         System.out.println("FOR EVERY WRONG ANSWER ( -*- ALL GBUCKS -*- ) = 0 || FOR EVERY RIGHT ANSWER GBUCKS = ( x2 )");
-        System.out.println("\n ARE YOU SURE YOU WANT TO CONTINUE ?");
+        System.out.println("ARE YOU SURE YOU WANT TO CONTINUE ? [ 'YES' OR 'NO' ]");
+        System.out.println("-----------");
+        System.out.println("GBUCKS: " + gbucks);
+        System.out.println("-----------");
+        System.out.println("==============================================================================================");
+
 
         String ruthless_Game_Confirmation = scanner_One.next();
+        System.out.println("===");
 
         switch (ruthless_Game_Confirmation){
-            case "yes", "y":
+            case "yes", "y","yess","yeah","yup","ok","sure","done","confirmed","affirmative":
                 break;
 
             default:
@@ -336,7 +352,85 @@ class game_logic extends shop {
 
         }
 
+        if (gbucks==0){
+            System.out.println("\n==================================================");
+            System.out.println("- !! NOT ENOUGH GBUCKS AT LEAST 10 REQUIRED !! -");
+            System.out.println("==================================================");
+            select_Game_Mode();
+        }
 
+        Random random_Ruthless = new Random();
+        int random_Ruthless_Number_One = random_Ruthless.nextInt(0,3);
+        int random_Ruthless_Number_To_Use = random_Ruthless.nextInt(1,26);
+
+
+        String ruthless_Word = "";
+
+        switch (random_Ruthless_Number_One){
+            case 0:
+                ruthless_Word = words_Easy[random_Ruthless_Number_To_Use];
+                break;
+            case 1:
+                ruthless_Word = words_Hard[random_Ruthless_Number_To_Use];
+            case 2:
+                ruthless_Word = words_Hard[random_Ruthless_Number_To_Use];
+                break;
+            default:
+                System.out.println("!! SOME ERROR OCCURRED !!");
+                select_Game_Mode();
+                break;
+        }
+
+        char[] ruthless_Word_Characters_Array = ruthless_Word.toCharArray();
+        String jumbled_Word_Ruthless = "";
+
+        for (int i=0;i<=ruthless_Word.length()-1;i++) {
+            if (i == 1) {
+                char temp = ruthless_Word_Characters_Array[0];
+                ruthless_Word_Characters_Array[0] = ruthless_Word_Characters_Array[1];
+                ruthless_Word_Characters_Array[1] = temp;
+            }
+
+            if (i == 2) {
+                char temp = ruthless_Word_Characters_Array[1];
+                ruthless_Word_Characters_Array[1] = ruthless_Word_Characters_Array[2];
+                ruthless_Word_Characters_Array[2] = temp;
+            }
+
+            if (i == 4) {
+                char temp = ruthless_Word_Characters_Array[3];
+                ruthless_Word_Characters_Array[3] = ruthless_Word_Characters_Array[4];
+                ruthless_Word_Characters_Array[4] = temp;
+            }
+
+            if (i == 6) {
+                char temp = ruthless_Word_Characters_Array[5];
+                ruthless_Word_Characters_Array[5] = ruthless_Word_Characters_Array[6];
+                ruthless_Word_Characters_Array[6] = temp;
+            }
+        }
+
+        jumbled_Word_Ruthless = new String(ruthless_Word_Characters_Array);
+
+
+        System.out.println("\nNO HINTS WILL BE GIVEN ! HAHA");
+        System.out.println("JUMBLED RUTHLESS WORD: " + jumbled_Word_Ruthless);
+
+        System.out.println("PLAYER GUESS: ");
+        scanner_One.nextLine();
+        String ruthless_Player_Guess = scanner_One.nextLine();
+
+        if (ruthless_Player_Guess.equalsIgnoreCase(ruthless_Word)){
+            System.out.println("-----------------------------------------------");
+            System.out.println(" YOU GUESSED RIGHT THE WORD WAS: " + real_Word);
+            System.out.println("-----------------------------------------------");
+            gbucks = gbucks*2;
+            ruthless_Game_Mode();
+        } else {
+            System.out.println("WRONG GUESS!");
+            gbucks = 0;
+            select_Game_Mode();
+        }
 
     }
 
