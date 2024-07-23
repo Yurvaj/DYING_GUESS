@@ -22,7 +22,7 @@ class game_Attributes{
     int gbucks;
     int player_Purchase_Quantity;
     int player_Final_Purchase;
-    static int price_Of_Power = 25;
+    static int price_Of_Power = 500;
     int power_To_Add;
 
     // THIS CLASS IS ONLY FOR GAME ATTRIBUTES AND INITIALIZING THE IMPORTED PACKAGES //
@@ -66,13 +66,15 @@ class game_Attributes{
     String[] words_Easy = {"hello","moon","swimming","basketball","lawn","venus","sunny","physics","building","city","country"
             ,"africa","asia","earth","plant","road","train","biology","chicken","turkey","desert","antarctica","ocean","river","animal"};
 
-    String[] words_Medium = {"construction", "latitude","longitude","microorganism","amoeba","centrifuge","mathematics","greenland",
-            "iceland","terminator","abandoned","selfish","maintenance","landmass","greetings","galaxy","neptune","saturn","curtains","accelerate","advocate","banish"
-            ,"baffled","cliche","doorknob","shower","laundry","stove","television","airplane","tank","missile","bombard","airstrip","kingdom"};
+    String[] words_Medium = {"construction","calculate", "latitude","longitude","approximately","microorganism","amoeba","centrifuge","mathematics","greenland",
+            "iceland","terminator","DNA","anticipate","agriculture","advantage","abandoned","selfish","maintenance","landmass","greetings","galaxy","neptune","saturn","curtains","accelerate","advocate","banish"
+            ,"baffled","cliche","international","celsius","publication","intellectual","foundation","biological","elementary","effectively","economics","category","boundary","anniversary","doorknob"
+            ,"shower","telescope","temperature","potentially","spokesman","Japanese","phenomenon","magazine","journalist","laboratory","laundry","stove","television","airplane","tank","missile","bombard","airstrip","kingdom"};
 
-    String[] words_Hard = {"adamant","backbite","ballad","benefactor","charisma","dauntless","discrepancy","dismantle","endeavour","extinction","fathom"
-            ,"fragile","futile","gamble","garment","gibberish","hostile","Imperative","indigenous","inevitable","Knight","leverage","mundane","oblivious","perplex"
-            ,"preamble","pinnacle","quadrilateral","utopian","Whimsical","Zeal","Zippy","Patriarchy","Valediction","validation","Incarnate"};
+    String[] words_Hard = {"adamant","transformation","acknowledge","fahrenheit","backbite","ballad","benefactor","charisma","dauntless","discrepancy","dismantle","endeavour","extinction","fathom"
+            ,"fragile","futile","interpretation","furthermore","ceremony","gamble","atmosphere","beneath","garment","administration","gibberish","hostile","Imperative","indigenous","inevitable","Knight","leverage","mundane","oblivious","perplex"
+            ,"preamble","psychologist","identification","sophisticated","pinnacle","headquarters","grandmother","fundamental","quadrilateral","enforcement","circumstance","utopian","Whimsical","Zeal","Zippy","Patriarchy","Valediction"
+            ,"validation","subsequent","photographer","mortgage","neighborhood","occasionally","membership","Incarnate"};
 
     String[] words_Meaning = {"greetings","space","activity","game","maintenance","space","felt","learning","shelter","landmass","landmass"
             ,"landmass","landmass","space","grows","built","built","learning","mmm hunger","mmm hunger","hot","cold","deep","natural","lives"};
