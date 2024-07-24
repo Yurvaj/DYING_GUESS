@@ -23,7 +23,7 @@ ___________________________________
 
 3) MAGICAL~SHOP
    
-- As of the release version 'v1.0.4' there is only power availabe to be bought inside of the magical shop, each power cost's '25' gbucks to purchase.
+- As of the release version 'v1.0.4' there is only power availabe to be bought inside of the magical shop, each power cost's '500' gbucks to purchase. That might seem a lot initially but it wont once you start playing 'RUTHLESS MODE'.
 - In  the upcoming updates more special abilities will be available !!
 
 _______________________
