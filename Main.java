@@ -101,6 +101,9 @@ class game_Attributes{
 
     // RUTHLESS GAME MODE //
 
+    String ruthless_Word = "";
+
+
 }
 
 class assigned_Values extends game_Attributes {
@@ -210,7 +213,7 @@ class game_logic extends assigned_Values {
 
                 use_Times_Power += player_Purchase_Quantity;
 
-                gbucks = gbucks - (player_Purchase_Quantity * 25);
+                gbucks = gbucks - (player_Purchase_Quantity * 500);
 
                 select_Game_Mode();
 
@@ -361,24 +364,25 @@ class game_logic extends assigned_Values {
             select_Game_Mode();
         }
 
+
         Random random_Ruthless = new Random();
         int random_Ruthless_Number_One = random_Ruthless.nextInt(0,3);
         int random_Ruthless_Number_To_Use = random_Ruthless.nextInt(1,26);
 
-
-        String ruthless_Word = "";
-
         switch (random_Ruthless_Number_One){
             case 0:
-                ruthless_Word = words_Easy[random_Ruthless_Number_To_Use];
+                ruthless_Word = words_Hard[random_Ruthless_Number_To_Use];
                 break;
             case 1:
-                ruthless_Word = words_Hard[random_Ruthless_Number_To_Use];
+                ruthless_Word = words_Easy[random_Ruthless_Number_To_Use];
+                break;
             case 2:
-                ruthless_Word = words_Hard[random_Ruthless_Number_To_Use];
+                ruthless_Word = words_Medium[random_Ruthless_Number_To_Use];
                 break;
             default:
+                System.out.println("\n=============================");
                 System.out.println("!! SOME ERROR OCCURRED !!");
+                System.out.println("=============================");
                 select_Game_Mode();
                 break;
         }
@@ -410,15 +414,23 @@ class game_logic extends assigned_Values {
                 ruthless_Word_Characters_Array[5] = ruthless_Word_Characters_Array[6];
                 ruthless_Word_Characters_Array[6] = temp;
             }
+
+            if (i==8){
+                char temp = ruthless_Word_Characters_Array[7];
+                ruthless_Word_Characters_Array[7] = ruthless_Word_Characters_Array[8];
+                ruthless_Word_Characters_Array[8] = temp;
+            }
+
+            jumbled_Word_Ruthless = new String(ruthless_Word_Characters_Array);
         }
 
-        jumbled_Word_Ruthless = new String(ruthless_Word_Characters_Array);
 
 
-        System.out.println("\nNO HINTS WILL BE GIVEN ! HAHA");
-        System.out.println("JUMBLED RUTHLESS WORD: " + jumbled_Word_Ruthless);
 
-        System.out.println("PLAYER GUESS: ");
+        System.out.println("\n! NO HINTS WILL BE GIVEN !");
+        System.out.println("JUMBLED RUTHLESS WORD: " + jumbled_Word_Ruthless + "\n");
+
+        System.out.println("GUESS: ");
         scanner_One.nextLine();
         String ruthless_Player_Guess = scanner_One.nextLine();
 
@@ -526,9 +538,7 @@ class game_logic extends assigned_Values {
                                 if (confirm_To_Continue_Hard.equalsIgnoreCase("y")) {
 
                                     use_Times_Power += power_To_Add;
-
                                     System.out.println("============================================================\n");
-
                                     game_Start_Display();
 
                                 } else {
@@ -541,20 +551,35 @@ class game_logic extends assigned_Values {
 
 
                             if (player_Strength >= hard_Gameplay_Threshold) {
+
                                 System.out.println("To use special power enter: [power]  ||  you can use 'power': " + use_Times_Power + " times");
+
                                 System.out.println("STRENGTH: " + player_Strength + "\n");
+
                                 System.out.println("NO HINTS WILL BE GIVEN");
+
                                 System.out.println("JUMBLED WORD: " + swapped_String_Hard + "\n");
+
                                 System.out.println("GUESS: ");
+
                                 player_Guess_Hard = scanner_One.next();
+
                                 if (use_Times_Power > 0) {
+
                                     if (player_Guess_Hard.equalsIgnoreCase("power")) {
+
                                         use_Times_Power--;
+
                                         player_Guess_Hard = real_Word_Hard;
+
                                         System.out.println("\nPOWER USED!");
+
                                     }
+
                                 }
+
                             }
+
                             if (player_Strength < hard_Gameplay_Threshold) {
                                 System.out.println("\n----------------------------------------");
                                 System.out.println("- YOU COULD NOT SURVIVE THE DIFFICULTY -");
