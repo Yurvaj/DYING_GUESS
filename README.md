@@ -3,6 +3,17 @@ ___________________________________
 DATE: 13/07/2024  ||  5:27 AM (IST)
 ___________________________________
 
+-- HOW TO SETUP THE GAME --
+
+1) Open the git bash in the desired folder you want the game files to be stored into.
+
+2) Open your git bash terminal (if in windows) and type the following command : " git clone https://github.com/Yurvaj/DYING_GUESS.git "
+
+3) The game files should now be visible to you in the folder you selected, After this you should start your IDE and open 'Main.java' file in it.
+
+4) Compile the code and your game is good to start ! Enjoy !
+
+__________________________________________________________________________________________________
 -- HOW THE GAME WORKS --
 
 
